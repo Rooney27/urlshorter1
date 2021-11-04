@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href=".">Создать ссылку</a>
+<table>
+    <tbody>
+      <tr>
+        <td colspan="2">Ранее созданные ссылки</td>
+      </tr>
+      <tr>
+        <td>Полная ссылка</td>
+        <td>Сокращенная ссылка</td>
+      </tr>
+      {% for u in urls_history %}
+      <tr>
+        <td><a href="{{u.url}}" target="_blank">{{u.url}}</a></td>
+        <td><a href="/{{u.slug}}" target="_blank">{{domain}}/{{u.slug}}</a></td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+{%endblock%}
